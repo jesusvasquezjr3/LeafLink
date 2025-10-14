@@ -1,0 +1,5 @@
+Flask==2.3.3
+pandas==2.3.3
+openai==0.28.1
+python-dotenv==1.0.0
+numpy==2.3.3

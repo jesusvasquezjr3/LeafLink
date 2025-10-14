@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeafLink - Bienestar Natural para tu Hogar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Symbols for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Epilogue', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2c5234',
+                        secondary: '#f0f5f1',
+                        accent: '#4a7c59',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Navegación -->
+    <nav id="navbar" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="static/logo.png" alt="Logo LeafLink" class="h-10 mr-3">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#productos" class="text-gray-600 hover:text-primary transition" data-lang="navProducts">Productos</a>
+                <a href="#nosotros" class="text-gray-600 hover:text-primary transition" data-lang="navAbout">Sobre Nosotros</a>
+                <a href="#suscripcion" class="text-gray-600 hover:text-primary transition" data-lang="navSubscription">Suscripción</a>
+                <a href="#contacto" class="text-gray-600 hover:text-primary transition" data-lang="navContact">Contacto</a>
+                 <!-- Language Switcher -->
+                <div class="flex items-center space-x-2 text-sm">
+                    <button id="lang-es" class="font-bold text-primary focus:outline-none">ES</button>
+                    <span>/</span>
+                    <button id="lang-en" class="text-gray-600 hover:text-primary focus:outline-none">EN</button>
+                </div>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#productos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="navProductsMobile">Productos</a>
+            <a href="#nosotros" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="navAboutMobile">Sobre Nosotros</a>
+            <a href="#suscripcion" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="navSubscriptionMobile">Suscripción</a>
+            <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="navContactMobile">Contacto</a>
+             <div class="flex items-center space-x-2 text-sm px-3 py-2">
+                <button id="lang-es-mobile" class="font-bold text-primary focus:outline-none">ES</button>
+                <span>/</span>
+                <button id="lang-en-mobile" class="text-gray-600 hover:text-primary focus:outline-none">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg text-white">
+        <div class="container mx-auto px-6 py-32 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight" data-lang="heroTitle">Conecta con la naturaleza en tu hogar</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-lang="heroSubtitle">Descubre nuestra selección de plantas y aromaterapia para crear un espacio de bienestar y armonía.</p>
+            <a href="#productos" class="bg-primary hover:bg-accent text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105" data-lang="heroButton">Explorar Colección</a>
+        </div>
+    </header>
+
+    <!-- Sección Productos -->
+    <main id="productos" class="container mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold text-center mb-12" data-lang="productsTitle">Nuestros Favoritos</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Producto 1 -->
+            <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                <div class="relative overflow-hidden">
+                    <img src="static/producto-suculentas.jpg" alt="Planta Suculenta" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2" data-lang="product1Title">Suculentas Variadas</h3>
+                    <p class="text-gray-600 text-sm mb-4" data-lang="product1Desc">Ideales para principiantes. Requieren poca agua y añaden un toque verde a cualquier rincón.</p>
+                    <div class="text-lg font-bold text-primary">$150.00 MXN</div>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                 <div class="relative overflow-hidden">
+                    <img src="static/producto-kit-jardineria.jpg" alt="Kit de Jardinería" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2" data-lang="product2Title">Kit de Jardinería Esencial</h3>
+                    <p class="text-gray-600 text-sm mb-4" data-lang="product2Desc">Todo lo que necesitas para empezar a cuidar tus plantas: herramientas, fertilizante y más.</p>
+                    <div class="text-lg font-bold text-primary">$650.00 MXN</div>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                 <div class="relative overflow-hidden">
+                    <img src="static/producto-difusor.jpg" alt="Difusor de Aromaterapia" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2" data-lang="product3Title">Difusor de Aceites Esenciales</h3>
+                    <p class="text-gray-600 text-sm mb-4" data-lang="product3Desc">Crea un ambiente relajante con nuestro difusor de cerámica y aceites 100% naturales.</p>
+                    <div class="text-lg font-bold text-primary">$800.00 MXN</div>
+                </div>
+            </div>
+            <!-- Producto 4 -->
+            <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group">
+                 <div class="relative overflow-hidden">
+                    <img src="static/producto-monstera.jpg" alt="Planta Tropical" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2" data-lang="product4Title">Monstera Deliciosa</h3>
+                    <p class="text-gray-600 text-sm mb-4" data-lang="product4Desc">Una planta tropical icónica que purifica el aire y se convierte en el centro de atención.</p>
+                    <div class="text-lg font-bold text-primary">$550.00 MXN</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="bg-white py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="benefitsTitle">Beneficios para tu Bienestar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-4">spa</span>
+                    <h3 class="text-xl font-bold mb-2" data-lang="benefit1Title">Reduce el Estrés</h3>
+                    <p class="text-gray-600" data-lang="benefit1Desc">Crea un santuario de calma con nuestras plantas y aceites esenciales.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-4">eco</span>
+                    <h3 class="text-xl font-bold mb-2" data-lang="benefit2Title">Purifica el Aire</h3>
+                    <p class="text-gray-600" data-lang="benefit2Desc">Nuestras plantas ayudan a limpiar el aire de toxinas y a mejorar la calidad del ambiente.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-4">sentiment_very_satisfied</span>
+                    <h3 class="text-xl font-bold mb-2" data-lang="benefit3Title">Mejora el Ánimo</h3>
+                    <p class="text-gray-600" data-lang="benefit3Desc">Aromas que elevan tu energía y te ayudan a empezar el día con una sonrisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="bg-secondary">
+        <div class="container mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-4" data-lang="aboutTitle">Nuestra Misión: Bienestar Natural</h2>
+                <p class="text-gray-600 mb-4" data-lang="aboutP1">En LeafLink, creemos que un toque de naturaleza puede transformar cualquier espacio. Fundada por Sofía Martínez y Diego Hernández, nuestra pasión es llevar el bienestar natural a cada hogar a través de plantas, accesorios y experiencias que inspiren una conexión más profunda con la tierra.</p>
+                <p class="text-gray-600" data-lang="aboutP2">Nos comprometemos con prácticas sostenibles, colaborando con productores locales y utilizando envases amigables con el medio ambiente.</p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-xl">
+                 <img src="static/nosotros-fundadores.jpg" alt="Fundadores de LeafLink en un vivero" class="w-full h-auto object-cover">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonios Section -->
+    <section id="clientes" class="bg-white py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="testimonialsTitle">Lo que dicen nuestros clientes</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Testimonio 1 -->
+                <div class="bg-secondary p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="w-16 h-16 rounded-full mr-4 object-cover" src="static/cliente-ana.jpg" alt="Foto de Ana">
+                        <div>
+                            <p class="font-bold text-lg" data-lang="testimonial1Name">Ana Pérez</p>
+                            <p class="text-sm text-gray-600" data-lang="testimonial1Date">Hace 2 semanas</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600" data-lang="testimonial1Text">"¡Me encantan mis nuevas plantas! Le han dado un toque de vida y frescura a mi apartamento. El servicio al cliente fue excelente."</p>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="bg-secondary p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="w-16 h-16 rounded-full mr-4 object-cover" src="static/cliente-carlos.jpg" alt="Foto de Carlos">
+                        <div>
+                            <p class="font-bold text-lg" data-lang="testimonial2Name">Carlos García</p>
+                            <p class="text-sm text-gray-600" data-lang="testimonial2Date">Hace 1 mes</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600" data-lang="testimonial2Text">"Los aceites esenciales son de una calidad increíble. El difusor es precioso y funciona a la perfección. ¡Totalmente recomendado!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suscripción -->
+    <section id="suscripcion" class="bg-primary text-white">
+        <div class="container mx-auto px-6 py-20 text-center">
+            <h2 class="text-3xl font-bold mb-4" data-lang="subscriptionTitle">Únete a Nuestro Club de Bienestar</h2>
+            <p class="mb-8 max-w-2xl mx-auto" data-lang="subscriptionP">Recibe mensualmente un kit sorpresa con plantas, productos de aromaterapia y guías prácticas para tu autocuidado. ¡Es el regalo perfecto para ti o para alguien especial!</p>
+            <a href="#" class="bg-white text-primary hover:bg-gray-200 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105" data-lang="subscriptionButton">Conoce los Planes</a>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="container mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold text-center mb-12" data-lang="contactTitle">¿Tienes alguna duda?</h2>
+        <div class="max-w-2xl mx-auto bg-secondary p-8 rounded-lg shadow-md">
+            <form action="#">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <input type="text" placeholder="Nombre" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" data-lang="contactNamePlaceholder">
+                    <input type="email" placeholder="Correo Electrónico" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none" data-lang="contactEmailPlaceholder">
+                </div>
+                <textarea placeholder="Tu mensaje" rows="5" class="w-full p-3 border border-gray-300 rounded-md mb-6 focus:ring-2 focus:ring-primary focus:outline-none" data-lang="contactMessagePlaceholder"></textarea>
+                <div class="text-center">
+                    <button type="submit" class="bg-primary hover:bg-accent text-white font-bold py-3 px-8 rounded-full transition duration-300" data-lang="contactButton">Enviar Mensaje</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <img src="static/logo_negativo.png" alt="Logo LeafLink Negativo" class="h-12 mb-4 mx-auto md:mx-0">
+                    <p class="text-gray-400" data-lang="footerDesc">Llevando bienestar natural a cada hogar.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footerNavTitle">Navegación</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#productos" class="hover:text-primary transition" data-lang="footerNavProducts">Productos</a></li>
+                        <li class="mb-2"><a href="#nosotros" class="hover:text-primary transition" data-lang="footerNavAbout">Sobre Nosotros</a></li>
+                        <li class="mb-2"><a href="#suscripcion" class="hover:text-primary transition" data-lang="footerNavSubscription">Suscripción</a></li>
+                        <li class="mb-2"><a href="#contacto" class="hover:text-primary transition" data-lang="footerNavContact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footerFollowTitle">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.011c0 4.435 2.865 8.18 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.011C22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+                <p data-lang="footerRights">&copy; 2025 LeafLink. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Chatbot Flotante -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+        <!-- Botón del Chatbot -->
+        <button id="chatbot-toggle" class="bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            <span>LeafLink Bot</span>
+        </button>
+        
+        <!-- Panel del Chat -->
+        <div id="chatbot-panel" class="hidden absolute bottom-16 right-0 w-80 h-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col">
+            <!-- Header del Chat -->
+            <div class="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <span class="font-semibold">LeafLink Bot</span>
+                </div>
+                <button id="chatbot-close" class="text-white hover:text-gray-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Área de Mensajes -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50">
+                <div class="flex items-start space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                        <p class="text-sm text-gray-800">¡Hola! Soy el asistente virtual de LeafLink. ¿En qué puedo ayudarte con nuestros productos de plantas y aromaterapia?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input del Chat -->
+            <div class="p-4 border-t border-gray-200 bg-white rounded-b-lg">
+                <div class="flex space-x-2">
+                    <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." class="flex-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:outline-none text-sm">
+                    <button id="chat-send" class="bg-primary hover:bg-accent text-white p-2 rounded-md transition-colors duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Funcionalidad del Chatbot ---
+        let isChatbotOpen = false;
+        let chatHistory = [];
+
+        // Elementos del DOM
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotPanel = document.getElementById('chatbot-panel');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+
+        // Funciones del chatbot
+        function toggleChatbot() {
+            isChatbotOpen = !isChatbotOpen;
+            if (isChatbotOpen) {
+                chatbotPanel.classList.remove('hidden');
+                chatInput.focus();
+            } else {
+                chatbotPanel.classList.add('hidden');
+            }
+        }
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-start space-x-2 mb-4 ${isUser ? 'flex-row-reverse space-x-reverse' : ''}`;
+            
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = `w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? 'bg-accent' : 'bg-primary'}`;
+            
+            if (isUser) {
+                avatarDiv.innerHTML = '<svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+            } else {
+                avatarDiv.innerHTML = '<svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+            }
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = `p-3 rounded-lg shadow-sm max-w-xs ${isUser ? 'bg-accent text-white' : 'bg-white'}`;
+            messageContent.innerHTML = `<p class="text-sm">${content}</p>`;
+            
+            messageDiv.appendChild(avatarDiv);
+            messageDiv.appendChild(messageContent);
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'flex items-start space-x-2 mb-4';
+            typingDiv.id = 'typing-indicator';
+            
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = 'w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0';
+            avatarDiv.innerHTML = '<svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+            
+            const typingContent = document.createElement('div');
+            typingContent.className = 'bg-white p-3 rounded-lg shadow-sm max-w-xs';
+            typingContent.innerHTML = '<div class="flex space-x-1"><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div>';
+            
+            typingDiv.appendChild(avatarDiv);
+            typingDiv.appendChild(typingContent);
+            chatMessages.appendChild(typingDiv);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, true);
+            chatHistory.push({ role: 'user', content: message });
+            chatInput.value = '';
+            
+            // Add typing indicator
+            addTypingIndicator();
+            
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+                
+                const data = await response.json();
+                
+                // Remove typing indicator
+                removeTypingIndicator();
+                
+                // Add bot response
+                addMessage(data.response, false);
+                chatHistory.push({ role: 'assistant', content: data.response });
+                
+            } catch (error) {
+                removeTypingIndicator();
+                addMessage('Lo siento, hubo un error al procesar tu mensaje. Por favor, inténtalo de nuevo.', false);
+                console.error('Error:', error);
+            }
+        }
+
+        // Event listeners
+        chatbotToggle.addEventListener('click', toggleChatbot);
+        chatbotClose.addEventListener('click', toggleChatbot);
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // --- Traducciones ---
+        const translations = {
+            es: {
+                navProducts: "Productos",
+                navAbout: "Sobre Nosotros",
+                navSubscription: "Suscripción",
+                navContact: "Contacto",
+                navProductsMobile: "Productos",
+                navAboutMobile: "Sobre Nosotros",
+                navSubscriptionMobile: "Suscripción",
+                navContactMobile: "Contacto",
+                heroTitle: "Conecta con la naturaleza en tu hogar",
+                heroSubtitle: "Descubre nuestra selección de plantas y aromaterapia para crear un espacio de bienestar y armonía.",
+                heroButton: "Explorar Colección",
+                productsTitle: "Nuestros Favoritos",
+                product1Title: "Suculentas Variadas",
+                product1Desc: "Ideales para principiantes. Requieren poca agua y añaden un toque verde a cualquier rincón.",
+                product2Title: "Kit de Jardinería Esencial",
+                product2Desc: "Todo lo que necesitas para empezar a cuidar tus plantas: herramientas, fertilizante y más.",
+                product3Title: "Difusor de Aceites Esenciales",
+                product3Desc: "Crea un ambiente relajante con nuestro difusor de cerámica y aceites 100% naturales.",
+                product4Title: "Monstera Deliciosa",
+                product4Desc: "Una planta tropical icónica que purifica el aire y se convierte en el centro de atención.",
+                benefitsTitle: "Beneficios para tu Bienestar",
+                benefit1Title: "Reduce el Estrés",
+                benefit1Desc: "Crea un santuario de calma con nuestras plantas y aceites esenciales.",
+                benefit2Title: "Purifica el Aire",
+                benefit2Desc: "Nuestras plantas ayudan a limpiar el aire de toxinas y a mejorar la calidad del ambiente.",
+                benefit3Title: "Mejora el Ánimo",
+                benefit3Desc: "Aromas que elevan tu energía y te ayudan a empezar el día con una sonrisa.",
+                aboutTitle: "Nuestra Misión: Bienestar Natural",
+                aboutP1: "En LeafLink, creemos que un toque de naturaleza puede transformar cualquier espacio. Fundada por Sofía Martínez y Diego Hernández, nuestra pasión es llevar el bienestar natural a cada hogar a través de plantas, accesorios y experiencias que inspiren una conexión más profunda con la tierra.",
+                aboutP2: "Nos comprometemos con prácticas sostenibles, colaborando con productores locales y utilizando envases amigables con el medio ambiente.",
+                testimonialsTitle: "Lo que dicen nuestros clientes",
+                testimonial1Name: "Ana Pérez",
+                testimonial1Date: "Hace 2 semanas",
+                testimonial1Text: '"¡Me encantan mis nuevas plantas! Le han dado un toque de vida y frescura a mi apartamento. El servicio al cliente fue excelente."',
+                testimonial2Name: "Carlos García",
+                testimonial2Date: "Hace 1 mes",
+                testimonial2Text: '"Los aceites esenciales son de una calidad increíble. El difusor es precioso y funciona a la perfección. ¡Totalmente recomendado!"',
+                subscriptionTitle: "Únete a Nuestro Club de Bienestar",
+                subscriptionP: "Recibe mensualmente un kit sorpresa con plantas, productos de aromaterapia y guías prácticas para tu autocuidado. ¡Es el regalo perfecto para ti o para alguien especial!",
+                subscriptionButton: "Conoce los Planes",
+                contactTitle: "¿Tienes alguna duda?",
+                contactNamePlaceholder: "Nombre",
+                contactEmailPlaceholder: "Correo Electrónico",
+                contactMessagePlaceholder: "Tu mensaje",
+                contactButton: "Enviar Mensaje",
+                footerDesc: "Llevando bienestar natural a cada hogar.",
+                footerNavTitle: "Navegación",
+                footerNavProducts: "Productos",
+                footerNavAbout: "Sobre Nosotros",
+                footerNavSubscription: "Suscripción",
+                footerNavContact: "Contacto",
+                footerFollowTitle: "Síguenos",
+                footerRights: "© 2025 LeafLink. Todos los derechos reservados."
+            },
+            en: {
+                navProducts: "Products",
+                navAbout: "About Us",
+                navSubscription: "Subscription",
+                navContact: "Contact",
+                navProductsMobile: "Products",
+                navAboutMobile: "About Us",
+                navSubscriptionMobile: "Subscription",
+                navContactMobile: "Contact",
+                heroTitle: "Connect with nature in your home",
+                heroSubtitle: "Discover our selection of plants and aromatherapy to create a space of well-being and harmony.",
+                heroButton: "Explore Collection",
+                productsTitle: "Our Favorites",
+                product1Title: "Assorted Succulents",
+                product1Desc: "Ideal for beginners. They require little water and add a green touch to any corner.",
+                product2Title: "Essential Gardening Kit",
+                product2Desc: "Everything you need to start caring for your plants: tools, fertilizer, and more.",
+                product3Title: "Essential Oil Diffuser",
+                product3Desc: "Create a relaxing atmosphere with our ceramic diffuser and 100% natural oils.",
+                product4Title: "Monstera Deliciosa",
+                product4Desc: "An iconic tropical plant that purifies the air and becomes the center of attention.",
+                benefitsTitle: "Benefits for Your Well-being",
+                benefit1Title: "Reduce Stress",
+                benefit1Desc: "Create a sanctuary of calm with our plants and essential oils.",
+                benefit2Title: "Purify the Air",
+                benefit2Desc: "Our plants help clean the air of toxins and improve the quality of the environment.",
+                benefit3Title: "Improve Mood",
+                benefit3Desc: "Scents that elevate your energy and help you start the day with a smile.",
+                aboutTitle: "Our Mission: Natural Wellness",
+                aboutP1: "At LeafLink, we believe a touch of nature can transform any space. Founded by Sofía Martínez and Diego Hernández, our passion is to bring natural wellness to every home through plants, accessories, and experiences that inspire a deeper connection with the earth.",
+                aboutP2: "We are committed to sustainable practices, collaborating with local producers and using environmentally friendly packaging.",
+                testimonialsTitle: "What our customers say",
+                testimonial1Name: "Ana Pérez",
+                testimonial1Date: "2 weeks ago",
+                testimonial1Text: '"I love my new plants! They have given a touch of life and freshness to my apartment. The customer service was excellent."',
+                testimonial2Name: "Carlos García",
+                testimonial2Date: "1 month ago",
+                testimonial2Text: '"The essential oils are of incredible quality. The diffuser is beautiful and works perfectly. Totally recommended!"',
+                subscriptionTitle: "Join Our Wellness Club",
+                subscriptionP: "Receive a monthly surprise kit with plants, aromatherapy products, and practical self-care guides. It's the perfect gift for yourself or someone special!",
+                subscriptionButton: "Learn About Plans",
+                contactTitle: "Have any questions?",
+                contactNamePlaceholder: "Name",
+                contactEmailPlaceholder: "Email",
+                contactMessagePlaceholder: "Your message",
+                contactButton: "Send Message",
+                footerDesc: "Bringing natural wellness to every home.",
+                footerNavTitle: "Navigation",
+                footerNavProducts: "Products",
+                footerNavAbout: "About Us",
+                footerNavSubscription: "Subscription",
+                footerNavContact: "Contact",
+                footerFollowTitle: "Follow Us",
+                footerRights: "© 2025 LeafLink. All rights reserved."
+            }
+        };
+
+        const setLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerText = translations[lang][key];
+                    }
+                }
+            });
+            // Update button styles
+            const esButtons = [document.getElementById('lang-es'), document.getElementById('lang-es-mobile')];
+            const enButtons = [document.getElementById('lang-en'), document.getElementById('lang-en-mobile')];
+
+            if (lang === 'es') {
+                esButtons.forEach(btn => {
+                    btn.classList.add('font-bold', 'text-primary');
+                    btn.classList.remove('text-gray-600');
+                });
+                enButtons.forEach(btn => {
+                    btn.classList.remove('font-bold', 'text-primary');
+                    btn.classList.add('text-gray-600');
+                });
+            } else {
+                enButtons.forEach(btn => {
+                    btn.classList.add('font-bold', 'text-primary');
+                    btn.classList.remove('text-gray-600');
+                });
+                esButtons.forEach(btn => {
+                    btn.classList.remove('font-bold', 'text-primary');
+                    btn.classList.add('text-gray-600');
+                });
+            }
+        };
+
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Script para menú móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('#mobile-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Language switcher listeners
+            const langButtons = ['lang-es', 'lang-en', 'lang-es-mobile', 'lang-en-mobile'];
+            langButtons.forEach(id => {
+                const button = document.getElementById(id);
+                if(button) {
+                    button.addEventListener('click', () => {
+                        const lang = id.includes('es') ? 'es' : 'en';
+                        setLanguage(lang);
+                    });
+                }
+            });
+            
+            // Set initial language
+            setLanguage('es');
+
+            // Prevent form submission from navigating away
+            const contactForm = document.querySelector('#contacto form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje!'); // Placeholder for actual form submission logic
+            });
+        });
+    </script>
+</body>
+</html>
+
