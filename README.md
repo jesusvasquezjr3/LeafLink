@@ -1,6 +1,6 @@
 # LeafLink BOT - Asistente Virtual para E-commerce
 
-<img src="static/logo_negativo.png" alt="Logo" width="150" align="right" style="margin-left: 20px; margin-bottom: 20px;" />
+<img src="static/LeafLink.png" alt="Logo" width="150" align="right" style="margin-left: 20px; margin-bottom: 20px;" />
 
 [![Hybridge Education](https://img.shields.io/badge/Hybridge-Education-lightgrey)](https://www.hybridge.education)
 
