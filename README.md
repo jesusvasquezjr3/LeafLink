@@ -6,6 +6,9 @@
 
 ![Flask](https://img.shields.io/badge/Flask-2.3.3-blue) ![pandas](https://img.shields.io/badge/pandas-2.3.3-green) ![openai](https://img.shields.io/badge/openai-0.28.1-orange) ![python-dotenv](https://img.shields.io/badge/python--dotenv-1.0.0-purple) ![numpy](https://img.shields.io/badge/numpy-2.3.3-red)
 
+
+
+
 ## Descripción
 
 **LeafLink BOT** es un proyecto académico que demuestra la implementación de un asistente conversacional (chatbot) basado en un Large Language Model (LLM) en una página web de e-commerce ficticia. La plataforma web, desarrollada con **Flask** y **Tailwind CSS**, simula una tienda en línea de plantas y productos de aromaterapia. El chatbot, impulsado por la API de **OpenAI (GPT-3.5-turbo)**, está diseñado para responder preguntas de los clientes basándose en la información de un catálogo de productos, mejorando así la experiencia de usuario y la eficiencia del servicio al cliente.
